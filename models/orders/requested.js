@@ -1,17 +1,20 @@
+/**
+ * Created by PAVANI on 6/29/2017.
+ */
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const newOreder = new Schema ({
-    orderId: {
+const requestedOreder = new Schema ({
+    requestId: {
         type:String,
         required: [true, 'Name field is required']
     },
-    drugId: {
+    orderId: {
         type: String,
         required: true
     },
-    quantity: {
-        type: Number,
+    vendor: {
+        type: String,
         required: true
     },
     requireDate: {
@@ -20,7 +23,6 @@ const newOreder = new Schema ({
     },
     status: {
         type: String
-
     },
     entryDetails: {
         EmployeeName: {
@@ -33,6 +35,6 @@ const newOreder = new Schema ({
     }
 });
 
-const Order = mongoose.model('orders', newOreder);
+const ReqOrder = mongoose.model('reqOrders', requestedOreder);
 
-module.exports = Order;
+module.exports = ReqOrder;

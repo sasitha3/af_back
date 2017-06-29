@@ -1,26 +1,25 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const newOreder = new Schema ({
-    orderId: {
-        type:String,
-        required: [true, 'Name field is required']
-    },
-    drugId: {
+const rejectedOreder = new Schema ({
+
+    rejectId: {
         type: String,
         required: true
     },
-    quantity: {
+    orderId: {
+        type: String,
+        required: true
+    },
+        quantity: {
         type: Number,
         required: true
     },
-    requireDate: {
-        type: Date,
-        required: true
+    reason: {
+        type: String
     },
     status: {
         type: String
-
     },
     entryDetails: {
         EmployeeName: {
@@ -33,6 +32,6 @@ const newOreder = new Schema ({
     }
 });
 
-const Order = mongoose.model('orders', newOreder);
+const RejOrder = mongoose.model('rejOrders', rejectedOreder);
 
-module.exports = Order;
+module.exports = RejOrder;

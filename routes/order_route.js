@@ -3,8 +3,6 @@ const order = require('../controller/order_controller');
 
 const router = express.Router();
 
-
-
 router.route('/')
     .post(order.insert)
 
