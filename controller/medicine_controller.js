@@ -10,6 +10,7 @@ function insert(req, res){
         .then(savedUser => res.json(savedUser))
         .catch(e => next(e));
 }
+
 function list(req, res){
     medic.find(function (err, medic) {
         if (err) return console.error(err);
@@ -17,4 +18,4 @@ function list(req, res){
         res.send(medic);
     });
 }
-module.exports = {insert: list }
+module.exports = {insert, list }

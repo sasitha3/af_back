@@ -1,6 +1,6 @@
-const dispense = require('../models/orders/order');
+const dispense = require('../models/prescription/dispensePrescript');
 
-function insert(req, res){
+/*function insert(req, res){
     const display = new dispense({
         drugname: req.body.drugname
 
@@ -9,7 +9,7 @@ function insert(req, res){
     display.save()
         .then(savedUser => res.json(savedUser))
         .catch(e => next(e));
-}
+}*/
 
 function list(req, res){
     dispense.find(function (err, dispense) {
@@ -19,4 +19,4 @@ function list(req, res){
     });
 }
 
-module.exports = {insert, list}
+module.exports = {list}

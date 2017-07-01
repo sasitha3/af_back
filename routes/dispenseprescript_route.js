@@ -1,12 +1,11 @@
 const express = require('express');
-const order = require('../controller/order_controller');
+const dispense = require('../controller/dispense_controller');
 
 const router = express.Router();
 
 router.route('/')
-    .post(order.insert)
-
-    .get(order.list);
+    .get(dispense.list);
 
 module.exports = router;
+
 

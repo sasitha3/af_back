@@ -10,11 +10,11 @@ function insert(req, res){
         .then(savedUser => res.json(savedUser))
         .catch(e => next(e));
 }
-function list(req, res){
+/*function list(req, res){
     doc.find(function (err, doc) {
         if (err) return console.error(err);
        // console.log(Order);
         res.send(doc);
     });
-}
-module.exports = {insert: list }
+}*/
+module.exports = {insert}

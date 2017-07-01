@@ -17,5 +17,5 @@ const Schema = mongoose.Schema;
         }
 });
 
-const medical = mongoose.model('doctor', MedicineDetails);
+const medical = mongoose.model('medicine', MedicineDetails);
 module.exports = medical;

@@ -1,6 +1,6 @@
-const Presc = require('../models/prescription/ShowPrescriptModel');
+const display = require('../models/prescription/ShowPrescriptModel');
 
-function insert(req, res){
+/*function insert(req, res){
     const prescribe = new Presc({
         PrescriptionID: req.body.PrescriptionID
 
@@ -9,12 +9,12 @@ function insert(req, res){
     prescribe.save()
         .then(savedUser => res.json(savedUser))
         .catch(e => next(e));
-}
+}*/
 function list(req, res){
-    Presc.find(function (err, Presc) {
+    display.find(function (err, display) {
         if (err) return console.error(err);
        // console.log(Order);
-        res.send(Presc);
+        res.send(display);
     });
 }
-module.exports = {insert: list }
+module.exports = {list}
