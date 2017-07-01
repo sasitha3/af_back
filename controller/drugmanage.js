@@ -5,12 +5,12 @@ var mongoose = require('mongoose');
 
 
 //importing the modelschema under variable drugdetails
-var drugdetails = require('../models/DrugData');
-//var Deletedrugdetails = require('../models/DeleteDrug');
+const drugdetails = require('../models/Drugmanage/DrugData');
+
 
 
 //sending drug details to the database
-router.post('/PostDrugDetails', function create(req, res, next) {
+function SendData(req,res) {
     var user = new drugdetails(req.body);
     console.log(user);
     user.save().then(function (user) {
@@ -18,23 +18,13 @@ router.post('/PostDrugDetails', function create(req, res, next) {
     }).catch(function (err) {
         console.log(err);
     });
+}
 
 
-});
-
-
-//getting drugDetails from the database
-router.get('/GetDrugDetails',function (req,res) {
-    drugdetails.find().then(function (values) {
-        console.log(values);
-        res.send(values);
-    }).catch(function (err) {
-        console.log(err);
-    });
-});
+// router.get('/GetDrugDetails',insert);
 
 //deleting data from database
-router.delete('/DeleteDrugDetails/:id',function(req,res) {
+function DeleteData(req,res) {
     console.log(req.param.id);
     drugdetails.remove({_id: req.params.id}).then(function (responce) {
         res.send(responce);
@@ -42,21 +32,33 @@ router.delete('/DeleteDrugDetails/:id',function(req,res) {
         console.log(err);
         res.sendStatus(500);
     });
-});
+}
+
+
 
 //getting drugDetails from the database
-router.get('/EditDrugDetails/:id',function (req,res) {
+function EditData(req,res) {
     drugdetails.find({_id: req.params.id}).then(function (values) {
         console.log(values);
         res.send(values);
     }).catch(function (err) {
         console.log(err);
     });
-});
+}
+
+//getting drugDetails from the database
+function GetData(req, res) {
+
+    drugdetails.find().then(function (values) {
+        console.log(values);
+        res.send(values);
+    }).catch(function (err) {
+        console.log(err);
+    });
+
+}
 
 
+module.exports = {GetData,SendData,EditData,DeleteData};
 
-
-
-module.exports = router;
 

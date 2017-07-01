@@ -4,8 +4,6 @@
 
     var mongoose = require('mongoose');
     var Schema = mongoose.Schema;
-    //making connection
-
 
 
     var DrugDetails = new Schema({
@@ -14,9 +12,9 @@
         name    : {type: String,required: true },
         dtype      : {type: String,required: true },
         utype      : {type: String,required: true },
-        dlevel    : {type: Number,required: true },
-        polevel    : {type: Number,required: true },
-        remark  : {type: Number,required: true },
+        dlevel    : {type: String,required: true },
+        polevel    : {type: String,required: true },
+        remark  : {type: String,required: true },
         vendor    : {type: String,required: true },
 
 

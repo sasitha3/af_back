@@ -1,5 +1,5 @@
 const express = require('express');
-var showdetails = require('../models/ShowPrescriptModel');
+var showdetails = require('../models/prescription/ShowPrescriptModel');
 
 const router = express.Router();
 
