@@ -12,6 +12,7 @@ const drugsNeedToBeRequested = new Schema ({
         type:String,
         required: true
     },
+
     drugType: {
         type:String
     },
