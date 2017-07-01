@@ -4,9 +4,6 @@
     <list default="true" id="3d5cca00-14ae-44d8-b4c0-14040131c459" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/drugmanage.js" afterPath="$PROJECT_DIR$/controller/drugmanage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/Drugmanage/DrugData.js" afterPath="$PROJECT_DIR$/models/Drugmanage/DrugData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/DrugDataManage.js" afterPath="$PROJECT_DIR$/routes/DrugDataManage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/ShowPrescript.js" afterPath="$PROJECT_DIR$/routes/ShowPrescript.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -64,8 +61,8 @@
       <file leaf-file-name="drugmanage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/drugmanage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="61" column="54" lean-forward="false" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+            <state relative-caret-position="183">
+              <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -146,8 +143,8 @@
         <option value="$PROJECT_DIR$/routes/api.js" />
         <option value="$PROJECT_DIR$/routes/ShowPrescript.js" />
         <option value="$PROJECT_DIR$/models/Drugmanage/DrugData.js" />
-        <option value="$PROJECT_DIR$/controller/drugmanage.js" />
         <option value="$PROJECT_DIR$/routes/DrugDataManage.js" />
+        <option value="$PROJECT_DIR$/controller/drugmanage.js" />
       </list>
     </option>
   </component>
@@ -378,7 +375,7 @@
       <option name="presentableId" value="Default" />
       <updated>1497547769674</updated>
       <workItem from="1497547772106" duration="10518000" />
-      <workItem from="1498894737620" duration="12227000" />
+      <workItem from="1498894737620" duration="12560000" />
     </task>
     <task id="LOCAL-00001" summary="sacheen 1st commit">
       <created>1498895726025</created>
@@ -387,11 +384,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498895726025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="sacheen 1st commit">
+      <created>1498908883145</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1498908883145</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22745000" />
+    <option name="totallyTimeSpent" value="23078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -613,8 +617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/drugmanage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="61" column="54" lean-forward="false" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+        <state relative-caret-position="183">
+          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding />
         </state>
       </provider>

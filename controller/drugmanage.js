@@ -25,6 +25,7 @@ function SendData(req,res) {
 
 //deleting data from database
 function DeleteData(req,res) {
+    console.log("i came here");
     console.log(req.param.id);
     drugdetails.remove({_id: req.params.id}).then(function (responce) {
         res.send(responce);
