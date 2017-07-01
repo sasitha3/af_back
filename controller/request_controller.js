@@ -1,7 +1,7 @@
 'use strict';
 
 const Request = require('../models/stock/requests.model');
-const Drugs=require('../models/stock/drugBatch.model');
+const Drugs = require('../models/stock/drugBatch.model');
 
 
 function insert(req, res){
@@ -13,7 +13,7 @@ function insert(req, res){
 }
 
 function list(req, res){
-    Drugs.find(function (err, Order) {
+    Drugs.find(function (err, Drugs) {
         if (err) return console.error(err);
         // console.log(Order);
         res.send(Drugs);
