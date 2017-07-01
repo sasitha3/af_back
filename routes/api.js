@@ -3,11 +3,15 @@ const router = express.Router();
 
 const order = require('./order_route');
 const prescription = require('./ShowPrescript');
+const authRoute = require('./auth.route');
+const userRoute = require('./user.route');
 
 
 //your routers
 router.use('/orders', order);
 router.use('/prescription', prescription);
+router.use('/authenticate', authRoute);
+router.use('/users', userRoute);
 
 module.exports = router;
 
