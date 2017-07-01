@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const config = require('./config/config');
 
 const route = require('./routes/api');
@@ -21,6 +22,49 @@ mongoose.connection.on('error', () => {
 });
 
 app.use(bodyParser.json());
+
+//jwt Auth
+// app.use(function (req, res, next) {
+//
+//     console.log(req.url);
+//     if (req.url == '/api/authenticate') {
+//         console.log('creating');
+//         next();
+//     } else {
+//         console.log('already');
+//         // check header or url parameters or post parameters for token
+//         var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+//
+//         // decode token
+//         if (token) {
+//             console.log(' ===============> ' + token);
+//             // verifies secret and checks exp
+//             //console.log('========>>>>>>> '+ app.get('superSecret'));
+//             jwt.verify(token, app.get('superSecret'), function (decoded, err) {
+//                 console.log('Decoder ->' + req.decoded);
+//                 if (err) {
+//                     return res.json({ success: false, message: 'Failed to authenticate token.' });
+//                 } else {
+//                     // if everything is good, save to request for use in other routes
+//                     req.decoded = decoded;
+//                     console.log(req.decoded);
+//                     next();
+//                 }
+//             });
+//
+//         } else {
+//
+//             // if there is no token
+//             // return an error
+//             return res.status(403).send({
+//                 success: false,
+//                 message: 'No token provided.'
+//             });
+//
+//         }
+//     }
+// });
+
 
 //CORS
 app.use((req, res, next) => {
