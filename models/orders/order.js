@@ -1,7 +1,7 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const newOreder = new Schema ({
+const newOrder = new Schema ({
     orderId: {
         type:String,
         required: [true, 'Name field is required']
@@ -33,6 +33,6 @@ const newOreder = new Schema ({
     }
 });
 
-const Order = mongoose.model('orders', newOreder);
+const Order = mongoose.model('orders', newOrder);
 
 module.exports = Order;
