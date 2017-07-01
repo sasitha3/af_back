@@ -5,10 +5,7 @@ const Drugs=require('../models/stock/drugBatch.model');
 
 
 function insert(req, res){
-    const request = new Request({
-        drugName: req.body.drugName
-
-    });
+    const request = new Request(req.body);
 
     request.save()
         .then(savedUser => res.json(savedUser))
