@@ -3,7 +3,7 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const drugsNeedToBeRequested = new Schema ({
+const requestingDrugs = new Schema ({
     drugName: {
         type:String,
         required: true
@@ -23,6 +23,6 @@ const drugsNeedToBeRequested = new Schema ({
 
 });
 
-const DrugsNeedToBeRequested = mongoose.model('drugNeedToBeRequested', drugsNeedToBeRequested);
+const RequestingDrugs = mongoose.model('drugBatch', requestingDrugs);
 
-module.exports = DrugsNeedToBeRequested;
+module.exports = RequestingDrugs;
