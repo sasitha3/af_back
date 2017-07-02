@@ -13,4 +13,13 @@ router.route('/')
 router.route('/batch')
     .post(requestCon.addBatch);
 
+router.route('/requestManage')
+    .get(requestCon.viewRequests);
+
+router.route('/reports')
+    .get(requestCon.drugTableLoad);
+
+router.route('/reports/:id')
+    .get(requestCon.deleteRequest);
+
 module.exports = router;
