@@ -4,26 +4,24 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 
-const requestedOreder = new Schema ({
-    requestId: {
-        type:String,
-        required: [true, 'Name field is required']
-    },
+const requestedOrder = new Schema ({
+
     orderId: {
-        type: String,
-        required: true
+        type: String
     },
     vendor: {
-        type: String,
-        required: true
+        type: String
     },
     requireDate: {
-        type: Date,
-        required: true
+        type: Date
+    },
+    quantity:{
+        type: String
     },
     status: {
         type: String
     },
+
     entryDetails: {
         EmployeeName: {
             type: String
@@ -35,6 +33,30 @@ const requestedOreder = new Schema ({
     }
 });
 
-const ReqOrder = mongoose.model('reqOrders', requestedOreder);
+requestedOrder.statics = {
+
+    get(id) {
+        return this.findById(id)
+            .exec()
+            .then((user) => {
+                if (user) {
+                    return user;
+                }
+                const err = new APIError('No such user exists!', httpStatus.NOT_FOUND);
+                return Promise.reject(err);
+            });
+    },
+
+
+    list({ skip = 0, limit = 50 } = {}) {
+        return this.find()
+            .sort({ createdAt: -1 })
+            .skip(+skip)
+            .limit(+limit)
+            .exec();
+    }
+};
+
+const ReqOrder = mongoose.model('reqOrders', requestedOrder);
 
 module.exports = ReqOrder;

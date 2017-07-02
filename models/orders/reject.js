@@ -3,10 +3,6 @@ const Schema = mongoose.Schema;
 
 const rejectedOreder = new Schema ({
 
-    rejectId: {
-        type: String,
-        required: true
-    },
     orderId: {
         type: String,
         required: true

@@ -27,11 +27,34 @@ const requests = new Schema ({
     },
     status:{
         type:String,
-        default:"Pending"
+        default:"New"
     }
 
 
 });
+requests.statics = {
+
+    get(id) {
+        return this.findById(id)
+            .exec()
+            .then((user) => {
+                if (user) {
+                    return user;
+                }
+                const err = new APIError('No such user exists!', httpStatus.NOT_FOUND);
+                return Promise.reject(err);
+            });
+    },
+
+
+    list({ skip = 0, limit = 50 } = {}) {
+        return this.find()
+            .sort({ createdAt: -1 })
+            .skip(+skip)
+            .limit(+limit)
+            .exec();
+    }
+};
 
 const Requests = mongoose.model('request', requests);
 

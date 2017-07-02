@@ -1,12 +1,10 @@
 const express = require('express');
 const order = require('../controller/order_controller');
+//const email = require('../controller/email_controller');
 
 const router = express.Router();
 //const od = 'order';
 
-router.route('/')
-
-    .get(order.list);
 
 router.route('/:id')
 
@@ -46,13 +44,14 @@ router.route('/rejects/:id')
 
     router.route('/vendors')
 
-    .get(order.list);
+    .get(order.list)
+     .post(order.insert);
 
 router.route('/messages')
 
     .post(order.insert);
 
-
-//Srouter.param('id', order.load);
+// router.route('/email').post(email.transporter);
+router.param('id', order.load);
 
 module.exports = router;
