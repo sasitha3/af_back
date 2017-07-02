@@ -6,21 +6,20 @@ const Schema = mongoose.Schema;
 const drugBatches = new Schema ({
     drugName: {
         type:String,
-        required: [true, 'Name field is required']
+        required:true
     },
     drugCategory: {
         type:String,
-        required: [true, 'Name field is required']
+        required:true
     },
     drugType: {
         type:String
     },
     quantity: {
         type:Number
-
     },
     manufacturedDate: {
-        type:String,
+        type:Date,
     },
     expiryDate: {
         type:Date

@@ -1,11 +1,16 @@
 const express = require('express');
-const request = require('../controller/request_controller');
+const requestCon = require('../controller/stock_controller');
+
+
 
 const router = express.Router();
 
 router.route('/')
-    .post(request.insert)
+    .post(requestCon.insert)
 
-    .get(request.list);
+    .get(requestCon.list);
+
+router.route('/batch')
+    .post(requestCon.addBatch);
 
 module.exports = router;
