@@ -16,10 +16,18 @@ router.route('/batch')
 router.route('/requestManage')
     .get(requestCon.viewRequests);
 
+router.route('/requestManage/:id')
+    .post(requestCon.updateRequest);
+
+// router.route('/confirmRecieval')
+//     .get(requestCon.showconfirmedRequests);
+
 router.route('/reports')
     .get(requestCon.drugTableLoad);
 
 router.route('/reports/:id')
-    .get(requestCon.deleteRequest);
+    .delete(requestCon.deleteRequest);
+
+
 
 module.exports = router;
