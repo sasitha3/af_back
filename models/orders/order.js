@@ -6,7 +6,7 @@ const newOrder = new Schema ({
         type:String,
         required: [true, 'Name field is required']
     },
-    drugId: {
+    drugName: {
         type: String,
         required: true
     },

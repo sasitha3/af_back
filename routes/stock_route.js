@@ -8,4 +8,9 @@ router.route('/')
 
     .get(request.list);
 
+router.route('/:id')
+    .put(request.update);
+
+router.param('id', request.load);
+
 module.exports = router;

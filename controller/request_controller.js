@@ -4,6 +4,16 @@ const Request = require('../models/stock/requests.model');
 const Drugs = require('../models/stock/drugBatch.model');
 
 
+function load(req, res, next, id) {
+    Request.get(id)
+        .then((request) => {
+            req.request = request; // eslint-disable-line no-param-reassign
+            return next();
+        })
+        .catch(e => next(e));
+}
+
+
 function insert(req, res){
     const request = new Request(req.body);
 
@@ -13,12 +23,19 @@ function insert(req, res){
 }
 
 function list(req, res){
-    Drugs.find(function (err, Drugs) {
+    Request.find(function (err, Order) {
         if (err) return console.error(err);
         // console.log(Order);
-        res.send(Drugs);
+        res.send(Order);
     });
 }
+function update(req, res, next) {
+    const request = req.request;
+    request.status = req.body.status;
 
+    request.save()
+        .then(savedUser => res.json(savedUser))
+        .catch(e => next(e));
+}
 
-module.exports = {insert, list}
+module.exports = {insert, list, load, update}

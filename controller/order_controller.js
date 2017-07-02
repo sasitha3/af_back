@@ -5,61 +5,33 @@ const Reject = require('../models/orders/reject');
 const Request = require('../models/orders/requested');
 const Vendor = require('../models/orders/vendor');
 
-function insert(req, res){
+function load(req, res, next, id) {
+    Deliver.get(id)
+        .then((deliver) => {
+            req.deliver = deliver; // eslint-disable-line no-param-reassign
+            return next();
+        })
+        .catch(e => next(e));
+}
+function insert(req, res, next){
 
     var dbinsSelect = {};
 
     if( req.path == '/request'){
 
-        dbinsSelect = new Request({
-            requestId: req.body.rejectId,
-            orderId: req.body.orderId,
-            vendor: req.body.vendor,
-            requireDate: req.body.requireDate,
-            status: req.body.status
-        });
+        dbinsSelect = new Request(req.body);
 
     }else if( req.path == '/rejects'){
 
-        dbinsSelect = new Reject({
-            rejectId: req.body.rejectId,
-            orderId: req.body.orderId,
-            quantity: req.body.quantity,
-            reason: req.body.reason,
-            status: req.body.status,
-        });
+        dbinsSelect = new Reject(req.body);
 
     }else if( req.path == '/vendors'){
-        dbinsSelect = new Vendor({
-            id: req.body.id,
-            name: req.body.name,
-            address: req.body.address,
-            contact: req.body.contact,
-            email: req.body.email
-        });
+        dbinsSelect = new Vendor(req.body);
     }else if( req.path == '/messages'){
-        dbinsSelect = new OrderEmail({
-
-            to: req.body.to,
-            from: req.body.from,
-            messageSubject: req.body.messageSubject,
-            messageBody: req.body.messageBody,
-            drugs: {
-                name: req.body.name,
-                requireDate:req.body.requireDate
-            },
-
-        });
+        dbinsSelect = new OrderEmail(req.body);
     }else if( req.path == '/delivers' ){
 
-        dbinsSelect = new Deliver({
-            deliveredId: req.body.deliveredId,
-            requestId: req.body.requestId,
-            orderId: req.body.orderId,
-            vendor: req.body.vendor,
-            quantity: req.body.quantity,
-            status: req.body.status
-        });
+        dbinsSelect = new Deliver(req.body);
 
     }
     dbinsSelect.save()
@@ -85,8 +57,6 @@ function list(req, res){
         dbSelect = Vendor;
     }else if( req.path == '/messages'){
         dbSelect = OrderEmail;
-    }else if( req.path == '/' ){
-        dbSelect = Order;
     }
 
     dbSelect.find(function (err, Order) {
@@ -95,28 +65,14 @@ function list(req, res){
         res.send(Order);
     });
 }
+function update(req, res, next) {
+    const deliver = req.deliver;
+    deliver.status = req.body.status;
 
-function update(req, res, next){
-    //const user = req.user;
-//     // user.status = req.body.status;
-    console.log('updating');
-    res.send('update');
-    // user.save()
-    //     .then(savedUser => res.json(savedUser))
-    //     .catch(e => next(e));
-//     console.log('updating');
+    deliver.save()
+        .then(savedUser => res.json(savedUser))
+        .catch(e => next(e));
 }
-
-function load(req, res, next, id) {
-    console.log('param ->' + id)
-    // Order.get(id)
-    //     .then((user) => {
-    //         req.user = user; // eslint-disable-line no-param-reassign
-    //         return next();
-    //     })
-    //     .catch(e => next(e));
-}
-
 
 
 module.exports = {insert, list, update, load};
