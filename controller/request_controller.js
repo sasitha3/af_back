@@ -24,9 +24,13 @@ function insert(req, res){
 
 function list(req, res){
     Request.find(function (err, Order) {
+    RequestingDrugs.find(function (err, RequestingDrugs) {
         if (err) return console.error(err);
         // console.log(Order);
         res.send(Order);
+        console.log(RequestingDrugs);
+        res.send(RequestingDrugs);
+
     });
 }
 function update(req, res, next) {
