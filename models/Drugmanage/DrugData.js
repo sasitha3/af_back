@@ -15,7 +15,7 @@
         dlevel    : {type: String,required: true },
         polevel    : {type: String,required: true },
         remark  : {type: String,required: true },
-        vendor    : {type: String,required: true },
+        vendor    : {type: String,required: true }
 
 
     });
